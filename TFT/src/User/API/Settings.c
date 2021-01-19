@@ -62,7 +62,7 @@ void infoSettingsReset(void)
   infoSettings.m27_refresh_time       = M27_REFRESH;
   infoSettings.m27_active             = M27_WATCH_OTHER_SOURCES;
   infoSettings.longFileName           = AUTO;  //ENABLED / DISABLED / AUTO
-  infoSettings.fan_percentage         = ENABLED;
+  infoSettings.fan_percentage         = SHOW_FAN_PERCENTAGE;
 
   infoSettings.pause_retract_len      = NOZZLE_PAUSE_RETRACT_LENGTH;
   infoSettings.resume_purge_len       = NOZZLE_RESUME_PURGE_LENGTH;
@@ -104,6 +104,7 @@ void infoSettingsReset(void)
   infoSettings.lcd_idle_brightness    = DEFAULT_LCD_IDLE_BRIGHTNESS;
   infoSettings.lcd_idle_timer         = DEFAULT_LCD_IDLE_TIMER;
   infoSettings.xy_offset_probing      = ENABLED;
+  infoSettings.z_steppers_alignment   = DISABLED;
 
 // Start, End & Cancel G-codes
   infoSettings.send_start_gcode       = DISABLED;
