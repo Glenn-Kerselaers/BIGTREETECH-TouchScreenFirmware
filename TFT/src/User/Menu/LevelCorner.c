@@ -65,14 +65,14 @@ static inline void drawProbeAccuracyIcon(MENUITEMS * levelItems)
   lvIcon.lines[0].fn_color = ORANGE;
   lvIcon.lines[0].text_mode = GUI_TEXTMODE_TRANS;
   lvIcon.lines[0].pos = loc;
-  lvIcon.lines[0].large_font = false;
+  lvIcon.lines[0].font = FONT_SIZE_NORMAL;
 
   lvIcon.lines[1].h_align = LEFT;
   lvIcon.lines[1].v_align = BOTTOM;
   lvIcon.lines[1].fn_color = WHITE;
   lvIcon.lines[1].text_mode = GUI_TEXTMODE_TRANS;
   lvIcon.lines[1].pos = (GUI_POINT){loc.x - 2, loc.y - 2};
-  lvIcon.lines[1].large_font = false;
+  lvIcon.lines[1].font = FONT_SIZE_NORMAL;
 
   lvIcon.lines[0].text = (uint8_t *)str;
   lvIcon.lines[1].text = (uint8_t *)str;
@@ -120,8 +120,8 @@ void menuLevelCorner(void)
   mustStoreCmd("G28\n");  // Init Coordinate
 
   // Check min edge limit for the probe with probe offset set in parseACK.c
-  uint8_t edge_min = MAX(ABS(getParameter((int16_t)P_PROBE_OFFSET, X_STEPPER)),
-                         ABS((int16_t)getParameter(P_PROBE_OFFSET, Y_STEPPER))) + 1;
+  uint8_t edge_min = MAX(ABS(getParameter((int16_t)P_PROBE_OFFSET, AXIS_INDEX_X)),
+                         ABS((int16_t)getParameter(P_PROBE_OFFSET, AXIS_INDEX_Y))) + 1;
 
   if (infoSettings.level_edge < edge_min)
   {
